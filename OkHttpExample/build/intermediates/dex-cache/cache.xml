@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/classes-d05e83265892ed8381304ca2f8842c2b2a1d97ca.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/.gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho/1.3.0/87e6bfd8d961a57cf8cbecebcbd68489d41bd4fc/stetho-1.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="87e6bfd8d961a57cf8cbecebcbd68489d41bd4fc">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/stetho-1.3.0-790fcb60bda47ff71e7820f4b317130d9ae2b7b1.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/classes-3cc106fdc5bab3890a89ac1825f2968ff1d347f3.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/classes-ee5d8d138e247fdf21c22bba526c803f0d21878f.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/classes-c161f4b97f6c3569773ddaebe78342d8eacee57d.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/695b63d702f505b9b916e02272e3b6381bade7f/gson-2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/gson-2.4-feeda10be2e964a16e9d96c651efb7ac0459733e.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.1-51a60e2037a688a7fae59ed06b6ba6335f6d514d.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/dev/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.1-6b6d3055646fd4c43455a3ee1994fa287a9bd88b.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/okio-1.6.0-d4be6f20ceecd887eef9fe020ba6c65876a36acf.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/butterknife-7.0.1-73ea08a921cf20fcbd634748a450039daf057704.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.1.2/7052283359001bb108753cb0583a887d3bf94c82/okhttp-3.1.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7052283359001bb108753cb0583a887d3bf94c82">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/okhttp-3.1.2-458f967017cdd5562ec3f17b9c03d611e1ea99ea.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/jsr305-2.0.1-b1846fc05bc93cd6c5db417b35f9aa2949bea3e1.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/commons-cli-1.2-997bd34ce6e7dc18c22808a30d7012233177c543.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/classes-aa5dfb77938d557a4871b843faa75080d19f735b.jar" />
+    </item>
+    <item
+        jar="/Users/MunkyuShin/.gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho-okhttp3/1.3.0/a4a4b2770ad38d26c7ffe10c989e555e635669e5/stetho-okhttp3-1.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4a4b2770ad38d26c7ffe10c989e555e635669e5">
+        <dex dex="/Users/MunkyuShin/Workspace/android_study/OkHttpExample/app/build/intermediates/pre-dexed/debug/stetho-okhttp3-1.3.0-80fd786f9f4022738bbba79d38058f4da6551af8.jar" />
+    </item>
+
+</items>
