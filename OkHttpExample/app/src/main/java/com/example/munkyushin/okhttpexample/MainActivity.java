@@ -7,12 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.example.munkyushin.okhttpexample.dto.Bank;
+import com.example.munkyushin.okhttpexample.dto.Doc;
+import com.example.munkyushin.okhttpexample.dto.Repository;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
+import java.io.InputStream;
 import java.util.List;
 
 import butterknife.Bind;
@@ -23,6 +26,9 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.recycler)
@@ -32,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             .addNetworkInterceptor(new StethoInterceptor())
             .build();
     private final Gson mGson = new Gson();
+    private final JsonUtil mJsonUtil = new JsonUtil();
 
     private RepositoryAdapter mAdapter;
 
@@ -43,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.title)
-    void onClickTitle() {
+    @OnClick(R.id.request_remote)
+    void onClickRemoteButton() {
+
         Request request = new Request.Builder()
                 .url("https://api.github.com/users/skylershin/repos")
                 .build();
@@ -61,29 +69,76 @@ public class MainActivity extends AppCompatActivity {
                     throw new IOException("Unexpected code " + response);
                 }
 
-                Type listType = new TypeToken<List<Repository>>() {
-                }.getType();
-
-                final List<Repository> repositories = mGson.fromJson(response.body().charStream(), listType);
-
-                MainActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            setRepositories(repositories);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+                mJsonUtil.readValue(response.body().string(), new TypeReference<List<Repository>>() {
+                }).subscribeOn(Schedulers.io())
+                        .doOnSuccess(new Action1<List<Repository>>() {
+                            @Override
+                            public void call(List<Repository> repositories) {
+                                System.out.println("doOnSuccess received "
+                                        + repositories + " on "
+                                        + Thread.currentThread().getName());
+                            }
+                        })
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Action1<List<Repository>>() {
+                            @Override
+                            public void call(List<Repository> repositories) {
+                                setRepositories(repositories);
+                            }
+                        }, new Action1<Throwable>() {
+                            @Override
+                            public void call(Throwable throwable) {
+                                throwable.printStackTrace();
+                            }
+                        });
             }
         });
+    }
+
+    @OnClick(R.id.request_local)
+    void onClickLocalButton() {
+        InputStream inputStream = getResources().openRawResource(R.raw.test);
+        mJsonUtil.readValue(inputStream, Bank.class)
+                .subscribeOn(Schedulers.newThread())
+                .doOnSuccess(new Action1<Bank>() {
+                    @Override
+                    public void call(Bank bank) {
+                        System.out.println("doOnSuccess received "
+                                + bank + " on "
+                                + Thread.currentThread().getName());
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Bank>() {
+                    @Override
+                    public void call(Bank bank) {
+                        System.out.println("Subscriber received "
+                                + bank + " on "
+                                + Thread.currentThread().getName());
+
+                        setProjectDocs(bank.getProjectDocs());
+
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        System.out.println("err"
+                                + throwable + " on "
+                                + Thread.currentThread().getName());
+                    }
+                });
     }
 
     private void setRepositories(List<Repository> repositories) {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         mAdapter = new RepositoryAdapter(getApplicationContext(), repositories);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    private void setProjectDocs(List<Doc> docs) {
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+        mRecyclerView.setAdapter(new ProjectDocsAdapter(getApplicationContext(), docs));
     }
 
     private class RepositoryAdapter extends RecyclerView.Adapter {
@@ -97,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return RepositoryViewHolder.create(mContext, parent);
+            return TextViewHolder.create(mContext, parent);
         }
 
         public Repository getItem(int position) {
@@ -106,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            ((RepositoryViewHolder) holder).bind(getItem(position));
+            ((TextViewHolder) holder).bind(getItem(position));
         }
 
         @Override
@@ -114,4 +169,34 @@ public class MainActivity extends AppCompatActivity {
             return mRepositoryList.size();
         }
     }
+
+    private class ProjectDocsAdapter extends RecyclerView.Adapter {
+        private List<Doc> mDocs;
+        private Context mContext;
+
+        public ProjectDocsAdapter(Context context, List<Doc> docs) {
+            mContext = context;
+            mDocs = docs;
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return TextViewHolder.create(mContext, parent);
+        }
+
+        public Doc getItem(int position) {
+            return mDocs.get(position);
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            ((TextViewHolder) holder).bind(getItem(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return mDocs.size();
+        }
+    }
+
 }
