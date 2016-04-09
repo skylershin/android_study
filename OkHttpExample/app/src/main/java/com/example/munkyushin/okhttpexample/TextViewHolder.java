@@ -7,26 +7,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.munkyushin.okhttpexample.dto.Doc;
+import com.example.munkyushin.okhttpexample.dto.Repository;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  * Created by MunkyuShin on 3/12/16.
  */
-public class RepositoryViewHolder extends RecyclerView.ViewHolder {
+public class TextViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.name)
     TextView mNameTextView;
 
     private Context mContext;
     private View mItemView;
 
-    public static RepositoryViewHolder create(Context context, ViewGroup parent) {
+    public static TextViewHolder create(Context context, ViewGroup parent) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.viewholder_repository, parent, false);
-        RepositoryViewHolder viewHolder = new RepositoryViewHolder(context, itemView);
+        TextViewHolder viewHolder = new TextViewHolder(context, itemView);
         return viewHolder;
     }
 
-    private RepositoryViewHolder(Context context, View itemView) {
+    private TextViewHolder(Context context, View itemView) {
         super(itemView);
         mContext = context;
         mItemView = itemView;
@@ -44,5 +47,18 @@ public class RepositoryViewHolder extends RecyclerView.ViewHolder {
         }
 
         mNameTextView.setText(name);
+    }
+
+    public void bind(Doc doc) {
+        if (doc == null) {
+            return;
+        }
+
+        String url = doc.DocURL;
+        if (url == null || url.length() == 0) {
+            return;
+        }
+
+        mNameTextView.setText(url);
     }
 }
